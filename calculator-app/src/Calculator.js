@@ -1,10 +1,15 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from './Header';
 import './Calculator.css'; 
 
 const Calculator = () => {
   const [input, setInput] = useState('');
   const [result, setResult] = useState('');
+  const [display, setDisplay] = useState('');
+
+  useEffect(() => {
+    setDisplay(input + (result ? ` = ${result}` : ''));
+  }, [input, result]);
 
   const handleClick = (value) => {
     setInput(input + value);
@@ -28,8 +33,7 @@ const Calculator = () => {
       <Header />
       <div className="calculator">
         <div className="display">
-          <input type="text" value={input} readOnly />
-          <div className="result">{result}</div>
+          <input type="text" value={display} readOnly />
         </div>
         <div className="buttons">
           <button onClick={() => handleClick('1')}>1</button>
