@@ -1,17 +1,23 @@
 import React from 'react';
+import './Header.css';
 
-const Header = () => {
-  return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div className="container-fluid">
-        <a className="navbar-brand mx-auto">Calculator</a>
-        
-        <div className="navbar-text text-end">
-          <a href="https://github.com/BodhiOng" className="text-light">About the Developer</a>
+  const Header = () => {
+    return (
+      <nav className="navbar navbar-expand-lg navbar-dark custom-navbar">
+        <div className="container-fluid position-relative">
+          <div className="row w-100">
+            <div className="col text-start"></div>
+
+              <div className="col text-center">
+                <a className="navbar-brand custom-navbar-brand">Calculator</a>
+              </div>
+
+              <div className="col text-end"></div>
+          </div>
+          <a href="https://github.com/BodhiOng" className="text-light custom-developer-link">About the Developer</a>
         </div>
-      </div>
-    </nav>
-  );
-};
+      </nav>
+    );
+  };
 
-export default Header;
+  export default Header;

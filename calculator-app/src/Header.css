@@ -1,0 +1,22 @@
+.custom-navbar-brand {
+    margin: 0 !important;
+    font-weight: bold;
+    font-size: 2rem !important;
+}
+
+.custom-navbar {
+    background-color: #48479C;
+    font-family: Consolas, Arial;
+}
+
+.container-fluid.position-relative {
+    position: relative;
+}
+
+.custom-developer-link {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding-right: 10px;
+    font-size: 0.8rem !important;
+}
