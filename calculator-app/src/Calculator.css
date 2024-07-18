@@ -1,17 +1,27 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background-color: #393939;
 }
 
 .calculator {
-  width: 200px;
+  flex-grow: 1;
+  width: 70%;
   margin: 50px auto;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .display {
   display: flex;
+  flex: 1;
   flex-direction: column;
   align-items: flex-end;
   margin-bottom: 10px;
@@ -32,6 +42,7 @@ body {
 }
 
 .buttons {
+  flex: 1;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
@@ -48,4 +59,11 @@ button {
 
 button:hover {
   background-color: #e0e0e0;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #393939;
+  min-height: 100vh;
 }

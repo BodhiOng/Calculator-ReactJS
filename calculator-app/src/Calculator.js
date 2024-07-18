@@ -24,7 +24,7 @@ const Calculator = () => {
   };
 
   return (
-    <div>
+    <div className='app-container'>
       <Header />
       <div className="calculator">
         <div className="display">
@@ -44,11 +44,10 @@ const Calculator = () => {
           <button onClick={() => handleClick('8')}>8</button>
           <button onClick={() => handleClick('9')}>9</button>
           <button onClick={() => handleClick('*')}>*</button>
-          <button onClick={handleClear}>C</button>
           <button onClick={() => handleClick('0')}>0</button>
-          <button onClick={() => handleClick('.')}>.</button>
-          <button onClick={() => handleClick('/')}>/</button>
+          <button onClick={handleClear}>C</button>
           <button onClick={handleCalculate}>=</button>
+          <button onClick={() => handleClick('/')}>/</button>
         </div>
       </div>
     </div>
