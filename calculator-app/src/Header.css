@@ -7,10 +7,15 @@
 .custom-navbar {
     background-color: #48479C;
     font-family: Consolas, Arial;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .container-fluid.position-relative {
     position: relative;
+    padding: 0 20px;
 }
 
 .custom-developer-link {
@@ -19,4 +24,39 @@
     right: 0;
     padding-right: 20px;
     font-size: 0.9rem !important;
+}
+
+@media (max-width: 768px) {
+    .custom-navbar {
+        height: auto;
+        padding: 10px 0;
+        flex-direction: column;
+    }
+
+    .custom-navbar-brand {
+        font-size: 1.5rem !important;
+        text-align: center;
+        width: 100%;
+    }
+
+    .custom-developer-link {
+        position: static;
+        text-align: center;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .container-fluid.position-relative {
+        padding: 0 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .custom-navbar-brand {
+        font-size: 1.2rem !important;
+    }
+
+    .custom-developer-link {
+        font-size: 0.8rem !important;
+    }
 }
