@@ -20,13 +20,16 @@
 
 .custom-developer-link {
     position: absolute;
-    bottom: 0;
-    right: 0;
-    padding-right: 20px;
+    bottom: 0px;
+    right: 20px;
     font-size: 0.9rem !important;
 }
 
 @media (max-width: 768px) {
+    .custom-developer-link {
+        display: none;
+    }
+
     .custom-navbar {
         height: auto;
         padding: 10px 0;
@@ -39,13 +42,6 @@
         width: 100%;
     }
 
-    .custom-developer-link {
-        position: static;
-        text-align: center;
-        width: 100%;
-        margin-top: 10px;
-    }
-
     .container-fluid.position-relative {
         padding: 0 10px;
     }
@@ -54,9 +50,5 @@
 @media (max-width: 576px) {
     .custom-navbar-brand {
         font-size: 1.2rem !important;
-    }
-
-    .custom-developer-link {
-        font-size: 0.8rem !important;
     }
 }
