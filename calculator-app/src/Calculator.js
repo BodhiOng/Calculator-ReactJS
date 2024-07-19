@@ -6,25 +6,44 @@ const Calculator = () => {
   const [input, setInput] = useState('');
   const [result, setResult] = useState('');
   const [display, setDisplay] = useState('');
+  const [isResultDisplayed, setIsResultDisplayed] = useState(false); 
 
   useEffect(() => {
-    setDisplay(input + (result ? ` = ${result}` : ''));
-  }, [input, result]);
+    if (isResultDisplayed) {
+      setDisplay(result);
+    } else {
+      setDisplay(input);
+    }
+  }, [input, result, isResultDisplayed]);
 
   const handleClick = (value) => {
-    setInput(input + value);
+    if (isResultDisplayed) {
+      if (['+', '-', '*', '/'].includes(value)) {
+        setInput(result + value); 
+      } else {
+        setInput(value);
+      }
+      setIsResultDisplayed(false);
+    } else {
+      setInput(input + value);
+    }
   };
 
   const handleClear = () => {
     setInput('');
     setResult('');
+    setIsResultDisplayed(false); 
   };
 
   const handleCalculate = () => {
     try {
-      setResult(eval(input));
+      setResult(eval(input)); 
+      setIsResultDisplayed(true); 
+      setInput(''); 
     } catch (error) {
       setResult('Error');
+      setIsResultDisplayed(true); 
+      setInput(''); 
     }
   };
 
