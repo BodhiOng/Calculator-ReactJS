@@ -9,20 +9,13 @@ body {
 }
 
 .calculator {
-  flex-grow: 1;
   width: 70%;
-  margin: 50px auto;
   padding: 20px;
   border: none;
   display: flex;
   flex-direction: column;
-}
-
-.display {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  align-items: flex-end;
+  justify-content: center;
+  flex-grow: 1;
 }
 
 .display input {
@@ -33,10 +26,10 @@ body {
   font-size: 2rem;
   border: 1px solid #A8A8A8;
   text-align: right;
+  margin-bottom: 20px;
 }
 
 .buttons {
-  flex: 1;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
@@ -61,6 +54,24 @@ button:hover {
   flex-direction: column;
   background-color: #393939;
   min-height: 100vh;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-container {
+  flex: 0 1 auto;
+  width: 100%;
+}
+
+.main-content {
+  flex: 1 1 auto; 
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-height: 100%;
+  padding-bottom: 20px;
 }
 
 .clear-button {
