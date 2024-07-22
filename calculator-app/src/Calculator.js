@@ -48,15 +48,19 @@ const Calculator = () => {
     const inputLength = input.length;
     const inputElement = inputRef.current;
     
-    if (inputLength <= 100) {
+    if (inputLength <= 10) {
       inputElement.style.fontSize = '7vh';
     } else if (inputLength <= 15) {
-      inputElement.style.fontSize = '5vh';
+      inputElement.style.fontSize = '6vh';
     } else if (inputLength <= 20) {
+      inputElement.style.fontSize = '5vh';
+    } else if (inputLength <= 25) {
       inputElement.style.fontSize = '4vh';
     } else {
       inputElement.style.fontSize = '3vh';
     }
+
+    inputElement.scrollLeft = inputElement.scrollWidth;
   }, [input]); 
 
   const handleClick = (value) => {

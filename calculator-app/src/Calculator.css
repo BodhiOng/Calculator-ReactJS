@@ -19,16 +19,22 @@ body {
   flex-grow: 1;
 }
 
+.display {
+  width: 100%;
+  height: auto; 
+}
+
 .display input {
   color: white;
   background-color: #1E1E1E;
   width: 100%;
-  padding: 2vh;
-  font-size: 7vh;
+  padding: 1vh; 
+  font-size: 7vh; 
   border: 1px solid #A8A8A8;
   text-align: right;
   margin-bottom: 2vh;
-  transition: font-size 0.2s;
+  box-sizing: border-box; 
+  transition: font-size 0.2s; 
 }
 
 .buttons {
@@ -115,7 +121,7 @@ button:hover {
 
   .display input {
     font-size: 7vh; 
-    padding: 8px; 
+    padding: 6px; 
   }
 
   button {
@@ -130,8 +136,8 @@ button:hover {
 
 @media (max-width: 400px) {
   .display input {
-    font-size: 7vh; 
-    padding: 6px;
+    font-size: 6vh; 
+    padding: 4px; 
   }
 
   button {
