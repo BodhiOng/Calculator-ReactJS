@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Header from './Header';
 import './Calculator.css'; 
 
@@ -7,6 +7,7 @@ const Calculator = () => {
   const [result, setResult] = useState('');
   const [isResultDisplayed, setIsResultDisplayed] = useState(false); 
   const [currentBracket, setCurrentBracket] = useState('(');
+  const inputRef = useRef(null);
 
   useEffect(() => {
     if (isResultDisplayed) {
@@ -19,14 +20,19 @@ const Calculator = () => {
     const handleKeyDown = (event) => {
       const key = event.key;
       if (!isNaN(key) || key === '.' || key === '+' || key === '-' || key === '*' || key === '/' || key === '%') {
+        event.preventDefault();
         handleClick(key);
       } else if (key === 'Enter') {
+        event.preventDefault();
         handleCalculate();
       } else if (key === 'Backspace') {
+        event.preventDefault();
         handleBackspace();
       } else if (key === 'Escape') {
+        event.preventDefault();
         handleClear();
       } else if (key === '(' || key === ')') {
+        event.preventDefault();
         handleBracketClick();
       }
     };
@@ -38,19 +44,35 @@ const Calculator = () => {
     };
   }, [input, result, isResultDisplayed]);
 
+  useEffect(() => {
+    const inputLength = input.length;
+    const inputElement = inputRef.current;
+    
+    if (inputLength <= 100) {
+      inputElement.style.fontSize = '7vh';
+    } else if (inputLength <= 15) {
+      inputElement.style.fontSize = '5vh';
+    } else if (inputLength <= 20) {
+      inputElement.style.fontSize = '4vh';
+    } else {
+      inputElement.style.fontSize = '3vh';
+    }
+  }, [input]); 
 
   const handleClick = (value) => {
-    if (isResultDisplayed) {
-      if (['+', '-', '*', '/'].includes(value)) {
-        setInput(result + value); 
-        setIsResultDisplayed(false);
+    setInput((prevInput) => {
+      if (isResultDisplayed) {
+        if (['+', '-', '*', '/'].includes(value)) {
+          setIsResultDisplayed(false);
+          return prevInput + value;
+        } else {
+          setIsResultDisplayed(false);
+          return value;
+        }
       } else {
-        setInput(value);
-        setIsResultDisplayed(false);
+        return prevInput + value;
       }
-    } else {
-      setInput(input + value);
-    }
+    });
   };
 
   const handleBracketClick = () => {
@@ -107,6 +129,7 @@ const Calculator = () => {
               value={input} 
               onChange={handleDisplayChange} 
               onKeyPress={handleKeyPress} 
+              ref={inputRef}
             />
           </div>
           
