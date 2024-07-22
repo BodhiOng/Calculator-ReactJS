@@ -14,6 +14,31 @@ const Calculator = () => {
     }
   }, [result, isResultDisplayed]);
 
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      const key = event.key;
+      if (!isNaN(key) || key === '.' || key === '+' || key === '-' || key === '*' || key === '/' || key === '%') {
+        handleClick(key);
+      } else if (key === 'Enter') {
+        handleCalculate();
+      } else if (key === 'Backspace') {
+        handleBackspace();
+      } else if (key === 'Escape') {
+        handleClear();
+      } else if (key === '(' || key === ')') {
+        handleBracketClick();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [input, result, isResultDisplayed]);
+
+
   const handleClick = (value) => {
     if (isResultDisplayed) {
       if (['+', '-', '*', '/'].includes(value)) {
