@@ -93,6 +93,12 @@ const Calculator = () => {
     } catch (error) {
       setResult('Error');
       setIsResultDisplayed(true); 
+
+      setTimeout(() => {
+        setResult('');
+        setIsResultDisplayed(false);
+        setInput('');
+      }, 5000);
     }
   };
 

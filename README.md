@@ -5,9 +5,9 @@ This is a simple and responsive calculator built with HTML, CSS, Bootstrap, Java
 ## Features
 
 - Basic arithmetic operations: addition, subtraction, multiplication, and division.
-- Supports percentage calculations.
+- Supports percentage and decimal points calculations.
 - Clear and backspace functionalities.
-- Dynamic font size adjustment based on input length.
+- Timeout (5 seconds) to clear input bar after 'Error' result post-calculation.
 - Responsive design that adapts to different screen sizes.
 - Keyboard support for seamless input.
 
@@ -39,7 +39,7 @@ npm install
 npm start
 ```
 
-The app should be running on `http://localhost:3000`.
+The app should be running on `http://localhost:3000/Calculator`.
 
 ## Usage
 
