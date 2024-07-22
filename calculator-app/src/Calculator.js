@@ -139,7 +139,7 @@ const Calculator = () => {
           
           <div className="buttons">
             <button onClick={handleClear} className='clear-button'>C</button>
-            <button onClick={handleBracketClick} className='functional-keys'>{currentBracket}</button>
+            <button onClick={handleBracketClick} className='functional-keys'>( )</button>
             <button onClick={() => handleClick('%')} className='functional-keys'>%</button>
             <button onClick={handleBackspace} className='backspace-button'>⌫</button>
             <button onClick={() => handleClick('1')}>1</button>
