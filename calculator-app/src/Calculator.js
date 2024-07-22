@@ -5,26 +5,24 @@ import './Calculator.css';
 const Calculator = () => {
   const [input, setInput] = useState('');
   const [result, setResult] = useState('');
-  const [display, setDisplay] = useState('');
   const [isResultDisplayed, setIsResultDisplayed] = useState(false); 
   const [currentBracket, setCurrentBracket] = useState('(');
 
   useEffect(() => {
     if (isResultDisplayed) {
-      setDisplay(result);
-    } else {
-      setDisplay(input);
+      setInput(result);
     }
-  }, [input, result, isResultDisplayed]);
+  }, [result, isResultDisplayed]);
 
   const handleClick = (value) => {
     if (isResultDisplayed) {
       if (['+', '-', '*', '/'].includes(value)) {
         setInput(result + value); 
+        setIsResultDisplayed(false);
       } else {
         setInput(value);
+        setIsResultDisplayed(false);
       }
-      setIsResultDisplayed(false);
     } else {
       setInput(input + value);
     }
@@ -50,19 +48,17 @@ const Calculator = () => {
     try {
       let expression = input;
       expression = expression.replace(/(\d+)%/g, '($1/100)');
-      setResult(eval(expression)); 
-      setIsResultDisplayed(true); 
-      setInput(''); 
+      const calculationResult = eval(expression);
+      setResult(calculationResult.toString());
+      setIsResultDisplayed(true);
     } catch (error) {
       setResult('Error');
       setIsResultDisplayed(true); 
-      setInput(''); 
     }
   };
 
   const handleDisplayChange = (event) => {
-    const newValue = event.target.value;
-    setInput(newValue);
+    setInput(event.target.value);
   };
 
   const handleKeyPress = (event) => {
@@ -83,7 +79,7 @@ const Calculator = () => {
           <div className="display">
             <input 
               type="text" 
-              value={display} 
+              value={input} 
               onChange={handleDisplayChange} 
               onKeyPress={handleKeyPress} 
             />
