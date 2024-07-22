@@ -7,6 +7,7 @@ const Calculator = () => {
   const [result, setResult] = useState('');
   const [display, setDisplay] = useState('');
   const [isResultDisplayed, setIsResultDisplayed] = useState(false); 
+  const [currentBracket, setCurrentBracket] = useState('(');
 
   useEffect(() => {
     if (isResultDisplayed) {
@@ -29,10 +30,16 @@ const Calculator = () => {
     }
   };
 
+  const handleBracketClick = () => {
+    handleClick(currentBracket);
+    setCurrentBracket(currentBracket === '(' ? ')' : '(');
+  }
+
   const handleClear = () => {
     setInput('');
     setResult('');
     setIsResultDisplayed(false); 
+    setCurrentBracket('(')
   };
 
   const handleCalculate = () => {
@@ -61,7 +68,7 @@ const Calculator = () => {
           
           <div className="buttons">
             <button onClick={handleClear} className='clear-button'>C</button>
-            <button onClick={() => handleClick('(')} className='functional-keys'>( )</button>
+            <button onClick={handleBracketClick} className='functional-keys'>{currentBracket}</button>
             <button className='functional-keys'>%</button>
             <button onClick={() => handleClick('+')} className='operator-button'>+</button>
             <button onClick={() => handleClick('1')}>1</button>
