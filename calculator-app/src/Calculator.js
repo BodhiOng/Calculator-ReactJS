@@ -45,20 +45,8 @@ const Calculator = () => {
   }, [input, result, isResultDisplayed]);
 
   useEffect(() => {
-    const inputLength = input.length;
     const inputElement = inputRef.current;
-    
-    if (inputLength <= 10) {
-      inputElement.style.fontSize = '7vh';
-    } else if (inputLength <= 15) {
-      inputElement.style.fontSize = '6vh';
-    } else if (inputLength <= 20) {
-      inputElement.style.fontSize = '5vh';
-    } else if (inputLength <= 25) {
-      inputElement.style.fontSize = '4vh';
-    } else {
-      inputElement.style.fontSize = '3vh';
-    }
+    inputElement.style.fontSize = '7vh';
 
     inputElement.scrollLeft = inputElement.scrollWidth;
   }, [input]); 
