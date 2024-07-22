@@ -75,11 +75,11 @@ button:hover {
   padding-bottom: 20px;
 }
 
-.clear-button {
+.clear-button, .backspace-button {
   background-color: #B73636;
 }
 
-.clear-button:hover {
+.clear-button:hover, .backspace-button:hover {
   background-color: #d53e3e;
 }
 
@@ -97,6 +97,14 @@ button:hover {
 
 .operator-button:hover {
   background-color: #ff8e3e;
+}
+
+.functional-keys {
+  background-color: #0048a1c5; 
+}
+
+.functional-keys:hover {
+  background-color: #0048a1;
 }
 
 @media (max-width: 600px) {
