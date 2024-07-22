@@ -51,6 +51,7 @@ button {
   background-color: #252525;
   border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.2s;
 }
 
 button:hover {
@@ -116,17 +117,21 @@ button:hover {
 
 @media (max-width: 600px) {
   .calculator {
-    width: 100%;
+    width: 90%;
+    max-width: 90%;
+    height: auto;
+    margin-top: 20px;
   }
 
   .display input {
-    font-size: 7vh; 
-    padding: 6px; 
+    font-size: 6vh; 
+    padding: 8px; 
+    margin-bottom: 1vh;
   }
 
   button {
-    font-size: 7vh !important; 
-    padding: 12px;
+    font-size: 4vh !important; 
+    padding: 15px;
   }
 
   .buttons {
@@ -135,17 +140,25 @@ button:hover {
 }
 
 @media (max-width: 400px) {
+  .calculator {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+  }
+
   .display input {
-    font-size: 6vh; 
-    padding: 4px; 
+    font-size: 5vh; 
+    padding: 6px; 
+    margin-bottom: 1vh;
   }
 
   button {
-    font-size: 6vh !important;
-    padding: 10px;
+    font-size: 3.5vh !important;
+    padding: 12px;
   }
 
   .buttons {
-    gap: 1vh;
+    gap: 0.5vh;
   }
 }
