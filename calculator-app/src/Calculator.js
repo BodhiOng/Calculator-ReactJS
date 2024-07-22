@@ -69,7 +69,7 @@ const Calculator = () => {
           <div className="buttons">
             <button onClick={handleClear} className='clear-button'>C</button>
             <button onClick={handleBracketClick} className='functional-keys'>{currentBracket}</button>
-            <button className='functional-keys'>%</button>
+            <button onClick={() => handleClick('%')} className='functional-keys'>%</button>
             <button onClick={() => handleClick('+')} className='operator-button'>+</button>
             <button onClick={() => handleClick('1')}>1</button>
             <button onClick={() => handleClick('2')}>2</button>
@@ -83,9 +83,8 @@ const Calculator = () => {
             <button onClick={() => handleClick('8')}>8</button>
             <button onClick={() => handleClick('9')}>9</button>
             <button onClick={() => handleClick('/')} className='operator-button'>÷</button>
-            <button className='functional-keys'>+/-</button>
             <button onClick={() => handleClick('0')}>0</button>
-            <button className='functional-keys'>.</button>
+            <button onClick={() => handleClick('.')} className='functional-keys'>.</button>
             <button onClick={handleCalculate} className='equal-button'>=</button>
           </div>
         </div>
