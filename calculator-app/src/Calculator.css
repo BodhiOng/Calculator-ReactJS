@@ -1,13 +1,16 @@
+/* Basic reset for height, margin, and padding */
 html, body {
   height: 100%;
   margin: 0;
   padding: 0;
 }
 
+/* Body styling */
 body {
   background-color: #393939;
 }
 
+/* Calculator styling */
 .calculator {
   width: 70%;
   max-width: 70%; 
@@ -19,11 +22,13 @@ body {
   flex-grow: 1;
 }
 
+/* Display area styling */
 .display {
   width: 100%;
   height: auto; 
 }
 
+/* Input styling inside display */
 .display input {
   color: white;
   background-color: #1E1E1E;
@@ -37,12 +42,14 @@ body {
   transition: font-size 0.2s; 
 }
 
+/* Button grid styling */
 .buttons {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1vh;
 }
 
+/* General button styling */
 button {
   padding: 2vh;
   font-size: 5vh !important;
@@ -54,10 +61,12 @@ button {
   transition: background-color 0.2s;
 }
 
+/* Hover effect for buttons */
 button:hover {
   background-color: #3a3939;
 }
 
+/* App container styling */
 .app-container {
   display: flex;
   flex-direction: column;
@@ -67,11 +76,13 @@ button:hover {
   justify-content: space-between;
 }
 
+/* Header container styling */
 .header-container {
   flex: 0 1 auto;
   width: 100%;
 }
 
+/* Main content styling */
 .main-content {
   flex: 1 1 auto; 
   width: 100%;
@@ -83,6 +94,7 @@ button:hover {
   padding-bottom: 20px;
 }
 
+/* Styling for specific buttons */
 .clear-button, .backspace-button {
   background-color: #B73636;
 }
@@ -115,6 +127,7 @@ button:hover {
   background-color: #0048a1;
 }
 
+/* Responsive design for small screens */
 @media (max-width: 600px) {
   .calculator {
     width: 90%;
@@ -139,6 +152,7 @@ button:hover {
   }
 }
 
+/* Responsive design for very small screens */
 @media (max-width: 400px) {
   .calculator {
     width: 100%;

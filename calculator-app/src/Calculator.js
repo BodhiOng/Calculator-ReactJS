@@ -3,13 +3,14 @@ import Header from './Header';
 import './Calculator.css'; 
 
 const Calculator = () => {
-  const [input, setInput] = useState('');
-  const [result, setResult] = useState('');
-  const [isResultDisplayed, setIsResultDisplayed] = useState(false); 
-  const [currentBracket, setCurrentBracket] = useState('(');
-  const inputRef = useRef(null);
+  const [input, setInput] = useState(''); // Holds the current input from user
+  const [result, setResult] = useState(''); // Holds the result of the calculation
+  const [isResultDisplayed, setIsResultDisplayed] = useState(false);  // Indicates if the result is currently displayed
+  const [currentBracket, setCurrentBracket] = useState('('); // Keeps track of which bracket to use next
+  const inputRef = useRef(null); // Reference to the input element
 
   useEffect(() => {
+    // Update input when result is displayed
     if (isResultDisplayed) {
       setInput(result);
     }
@@ -19,6 +20,7 @@ const Calculator = () => {
   useEffect(() => {
     const handleKeyDown = (event) => {
       const key = event.key;
+      // Handle different key inputs
       if (!isNaN(key) || key === '.' || key === '+' || key === '-' || key === '*' || key === '/' || key === '%') {
         event.preventDefault();
         handleClick(key);
@@ -45,12 +47,15 @@ const Calculator = () => {
   }, [input, result, isResultDisplayed]);
 
   useEffect(() => {
+    // Adjust font size and scroll input element
     const inputElement = inputRef.current;
-    inputElement.style.fontSize = '7vh';
+    inputElement.style.fontSize = '7vh'; // Font size adjustment as needed
 
+    // Scroll to the end of the input
     inputElement.scrollLeft = inputElement.scrollWidth;
   }, [input]); 
 
+  // Handle button clicks
   const handleClick = (value) => {
     setInput((prevInput) => {
       if (isResultDisplayed) {
@@ -67,11 +72,13 @@ const Calculator = () => {
     });
   };
 
+  // Handle bracket toggle  
   const handleBracketClick = () => {
     handleClick(currentBracket);
     setCurrentBracket(currentBracket === '(' ? ')' : '(');
   }
 
+  // Clear the calculator  
   const handleClear = () => {
     setInput('');
     setResult('');
@@ -79,21 +86,24 @@ const Calculator = () => {
     setCurrentBracket('(')
   };
 
+  // Handle backspace key
   const handleBackspace = () => {
     setInput(input.slice(0, -1));
   };
 
+  // Calculate the result of the input expression
   const handleCalculate = () => {
     try {
       let expression = input;
       expression = expression.replace(/(\d+)%/g, '($1/100)');
-      const calculationResult = eval(expression);
+      const calculationResult = eval(expression); // Evaluate the expression
       setResult(calculationResult.toString());
       setIsResultDisplayed(true);
     } catch (error) {
       setResult('Error');
       setIsResultDisplayed(true); 
 
+      // Clear result after a delay
       setTimeout(() => {
         setResult('');
         setIsResultDisplayed(false);
@@ -102,10 +112,12 @@ const Calculator = () => {
     }
   };
 
+  // Update input from display change
   const handleDisplayChange = (event) => {
     setInput(event.target.value);
   };
 
+  // Handle key press from Enter key
   const handleKeyPress = (event) => {
     if (event.key === 'Enter') {
       event.preventDefault();
