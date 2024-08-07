@@ -1,6 +1,6 @@
 # Calculator
 
-This is a simple and responsive calculator built with HTML, CSS, Bootstrap, Javascript, and React.js that performs basic arithmetic operations.
+This is a simple and responsive calculator that performs basic arithmetic operations.
 
 ## Features
 
