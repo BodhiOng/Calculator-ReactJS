@@ -19,6 +19,7 @@
 .container-fluid.position-relative {
     position: relative;
     padding: 0 20px;
+    overflow: hidden;
 }
 
 /* Styling for the developer link */
@@ -44,9 +45,13 @@
     .custom-navbar-brand {
         text-align: center;
         width: 100%;
+        font-size: 1.5rem !important;
     }
 
     .container-fluid.position-relative {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         padding: 0 10px;
     }
 
@@ -60,6 +65,10 @@
 @media (max-width: 400px) {
     .custom-navbar {
         padding: 5px 0;
+    }
+
+    .custom-navbar-brand {
+        font-size: 1.2rem !important;
     }
 
     .container-fluid.position-relative {
