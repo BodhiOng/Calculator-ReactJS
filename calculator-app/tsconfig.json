@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+      "target": "es5",
+      "module": "commonjs",
+      "jsx": "react-jsx", // Use "react" if you are using React 17 or earlier
+      "strict": true,
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true
+    },
+    "include": ["src/**/*"],
+    "exclude": ["node_modules"]
+}

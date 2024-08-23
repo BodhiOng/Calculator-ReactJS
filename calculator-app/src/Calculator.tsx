@@ -1,13 +1,13 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, ChangeEvent } from 'react';
 import Header from './Header';
 import './Calculator.css'; 
 
 const Calculator = () => {
-  const [input, setInput] = useState(''); // Holds the current input from user
-  const [result, setResult] = useState(''); // Holds the result of the calculation
-  const [isResultDisplayed, setIsResultDisplayed] = useState(false);  // Indicates if the result is currently displayed
-  const [currentBracket, setCurrentBracket] = useState('('); // Keeps track of which bracket to use next
-  const inputRef = useRef(null); // Reference to the input element
+  const [input, setInput] = useState<string>(''); // Holds the current input from user
+  const [result, setResult] = useState<string>(''); // Holds the result of the calculation
+  const [isResultDisplayed, setIsResultDisplayed] = useState<boolean>(false);  // Indicates if the result is currently displayed
+  const [currentBracket, setCurrentBracket] = useState<string>('('); // Keeps track of which bracket to use next
+  const inputRef = useRef<HTMLInputElement | null>(null); // Reference to the input element
 
   useEffect(() => {
     // Update input when result is displayed
@@ -18,10 +18,10 @@ const Calculator = () => {
 
 
   useEffect(() => {
-    const handleKeyDown = (event) => {
+    const handleKeyDown = (event: KeyboardEvent) => {
       const key = event.key;
       // Handle different key inputs
-      if (!isNaN(key) || key === '.' || key === '+' || key === '-' || key === '*' || key === '/' || key === '%') {
+      if (!isNaN(Number(key)) || key === '.' || key === '+' || key === '-' || key === '*' || key === '/' || key === '%') {
         event.preventDefault();
         handleClick(key);
       } else if (key === 'Enter') {
@@ -49,14 +49,16 @@ const Calculator = () => {
   useEffect(() => {
     // Adjust font size and scroll input element
     const inputElement = inputRef.current;
-    inputElement.style.fontSize = '7vh'; // Font size adjustment as needed
-
-    // Scroll to the end of the input
-    inputElement.scrollLeft = inputElement.scrollWidth;
+    if (inputElement) {
+      inputElement.style.fontSize = '7vh'; // Font size adjustment as needed
+  
+      // Scroll to the end of the input
+      inputElement.scrollLeft = inputElement.scrollWidth;
+    }
   }, [input]); 
 
   // Handle button clicks
-  const handleClick = (value) => {
+  const handleClick = (value: string) => {
     setInput((prevInput) => {
       if (isResultDisplayed) {
         if (['+', '-', '*', '/'].includes(value)) {
@@ -113,12 +115,12 @@ const Calculator = () => {
   };
 
   // Update input from display change
-  const handleDisplayChange = (event) => {
+  const handleDisplayChange = (event: ChangeEvent<HTMLInputElement>) => {
     setInput(event.target.value);
   };
 
   // Handle key press from Enter key
-  const handleKeyPress = (event) => {
+  const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
       event.preventDefault();
       handleCalculate(); 

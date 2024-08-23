@@ -1,11 +1,9 @@
-/* Custom styles for the brand name in the navbar */
 .custom-navbar-brand {
     margin: 0 !important;
     font-weight: bold;
     font-size: 2rem !important;
 }
 
-/* Custom styling for the navbar */
 .custom-navbar {
     background-color: #48479C;
     font-family: Consolas, Arial;
@@ -15,14 +13,12 @@
     justify-content: center;
 }
 
-/* Container styling with relative positioning */
 .container-fluid.position-relative {
     position: relative;
     padding: 0 20px;
     overflow: hidden;
 }
 
-/* Styling for the developer link */
 .custom-developer-link {
     position: absolute;
     bottom: 0px;
@@ -30,7 +26,6 @@
     font-size: 0.9rem !important;
 }
 
-/* Responsive design for tablets and smaller screens */
 @media (max-width: 768px) {
     .custom-developer-link {
         display: none;
@@ -61,7 +56,6 @@
     }
 }
 
-/* Responsive design for very small screens */
 @media (max-width: 400px) {
     .custom-navbar {
         padding: 5px 0;
