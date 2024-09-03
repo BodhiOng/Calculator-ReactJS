@@ -11,10 +11,6 @@ This is a simple and responsive calculator that performs basic arithmetic operat
 - Responsive design that adapts to different screen sizes.
 - Keyboard support for seamless input.
 
-## Live Demo
-
-You can view a live demo of the calculator at [Calculator](https://bodhiong.github.io/Calculator/).
-
 ## Installation
 
 To get started with the Calculator app, follow these steps:
