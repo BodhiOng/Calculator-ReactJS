@@ -2,7 +2,7 @@
     "compilerOptions": {
       "target": "es5",
       "module": "commonjs",
-      "jsx": "react-jsx", // Use "react" if you are using React 17 or earlier
+      "jsx": "react-jsx",
       "strict": true,
       "esModuleInterop": true,
       "skipLibCheck": true,

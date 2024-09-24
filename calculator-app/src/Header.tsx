@@ -10,7 +10,6 @@ import './Header.css';
               <a className="navbar-brand custom-navbar-brand">Calculator</a>
             </div>
           </div>
-          {/* Link to the developer's Github profile */}
           <a href="https://github.com/BodhiOng" className="text-light custom-developer-link">About the Developer</a>
         </div>
       </nav>

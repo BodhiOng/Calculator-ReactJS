@@ -114,7 +114,7 @@ const Calculator = () => {
     }
   };
 
-  // Update input from display change
+  // Update input from the display bar (keyboard typing)
   const handleDisplayChange = (event: ChangeEvent<HTMLInputElement>) => {
     setInput(event.target.value);
   };
